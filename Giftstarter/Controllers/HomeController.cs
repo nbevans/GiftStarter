@@ -17,5 +17,10 @@ namespace Giftstarter.Controllers
         {
             return View();
         }
+
+        public ActionResult Friend(string name)
+        {
+            return View();
+        }
     }
 }
