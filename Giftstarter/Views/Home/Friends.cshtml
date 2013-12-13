@@ -1,10 +1,15 @@
-﻿@{
+﻿@using Giftstarter.Domain
+@{
     ViewBag.Title = "Friends";
 }
 
-<div class="row" style="font-weight: bold; font-size: 150%;">
-    @Html.ActionLink("James", "Friend", new { name="James" })
-    <div class="col-md-12">Nathan</div>
-    <div class="col-md-12">Emma</div>
-    <div class="col-md-12">Simon</div>
-</div>
+@foreach (var user in State.Instance.Users.Where(x => !x.Name.Equals("James", StringComparison.OrdinalIgnoreCase)))
+{
+
+    <div style="width: 100px; display:inline-block;">
+        <a href="@Url.Action("Friend", new { name = user.Name })" class="thumbnail">
+            <div style="font-weight: bold; text-align: center;">@user.Name</div>
+            <img src="~/Images/Mugshots/@(user.Name.ToLowerInvariant()).png" />
+        </a>
+    </div>
+}

@@ -26,6 +26,8 @@ namespace Giftstarter.Domain
     public class User : IComparable<User>, IEquatable<User>
     {
         public string Name { get; set; }
+        public string Mugshot { get; set; }
+
         public User(string name)
         {
             Name = name;

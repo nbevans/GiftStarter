@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace Giftstarter.Controllers
 {
+    using Domain;
+    using Models;
+
     public class HomeController : Controller
     {
         public ActionResult Wishlist()
@@ -21,6 +24,19 @@ namespace Giftstarter.Controllers
         public ActionResult Friend(string name)
         {
             return View();
+        }
+
+        public ActionResult AddWishlistItem(AddWishlistItem model)
+        {
+            State.Instance.Wishlists[new User("James")].Add(new WishedItem
+            {
+                Name = model.Name,
+                Link = model.Link,
+                Price = model.Price,
+                Contributors = new Dictionary<User, decimal>()
+            });
+
+            return RedirectToAction("Wishlist");
         }
     }
 }
