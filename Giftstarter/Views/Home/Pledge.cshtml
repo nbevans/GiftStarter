@@ -1,0 +1,19 @@
+﻿@model dynamic
+@{
+}
+
+<h2>Pledge to your friend @ViewBag.name</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="thumbnail" style="width: 135px; display:inline-block;">
+            <div style="font-weight: bold; text-align: center;">@ViewBag.name</div>
+            <img src="~/Images/Mugshots/@(ViewBag.name.ToLowerInvariant()).png" />
+        </div>
+
+        <div class="text-success" style="font-size: 150%; font-weight: bold;">5 gifts so far!</div>
+    </div>
+    <div class="col-md-9">
+        
+    </div>
+</div>

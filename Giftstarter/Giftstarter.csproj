@@ -344,6 +344,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Friend.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Pledge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

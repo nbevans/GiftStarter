@@ -49,5 +49,11 @@ namespace Giftstarter.Controllers
 
             return RedirectToAction("Wishlist");
         }
+
+        public ActionResult Pledge(string name)
+        {
+            ViewBag.name = name;
+            return View();
+        }
     }
 }
