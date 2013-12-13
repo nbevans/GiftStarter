@@ -17,7 +17,7 @@
     
     @using (Html.BeginForm("Pledge", "Home", FormMethod.Post, new {}))
     {
-        <div class="col-md-9" style="width: 70%; font-size: 120%;">
+        <div class="col-md-9" style="width: 75%; font-size: 120%;">
             <div class="row" style="margin: 4px;">
                 <div class="col-md-4" style="font-weight: bold;">Gift</div>
                 <div class="col-md-2" style="font-weight: bold;">Price</div>
@@ -30,8 +30,10 @@
                     <a class="col-md-4" href=@gift.Link style="font-weight: bold;">@gift.Name</a>
                     <div class="col-md-2">@gift.Price.ToString("C")</div>
                     <div class="col-md-4">
-                        <div class="progress" style="width: 100%;">
-                            <div class="progress-bar" role="progressbar" style="width: @gift.Progress().ToString()%;" />
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: @gift.Progress().ToString()%;">
+                                <span class="sr-only">40% Complete (success)</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -40,7 +42,7 @@
                 </div>
             }
             <input type="submit" class="btn btn-lg btn-primary btn-block" value="Pledge!"
-                   style="font-weight: bold; width: 120px; float: right; font-size: 140%; margin-top: 10px; margin-right: 5px;" />
+                   style="font-weight: bold; width: 120px; float: right; font-size: 140%; margin-top: 10px; margin-right: 17px;" />
         </div>
     }
 </div>
