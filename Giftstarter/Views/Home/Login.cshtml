@@ -2,13 +2,16 @@
     ViewBag.Title = "Login";
 }
 
-<form role="form">
-    <h2>Please sign in</h2>
-    <input type="text" class="form-control" placeholder="Email address" />
-    <input type="password" class="form-control" placeholder="Password" />
-    <label class="checkbox">
-        <input type="checkbox" value="remember-me" />
-        Remember me
-    </label>
-    @Html.ActionLink("Sign in", "Wishlist")
-</form>
+@using (@Html.BeginForm("form"))
+{
+    <div style="max-width: 330px; margin: 0 auto;">
+        <h2>Please sign in</h2>
+        <input type="text" class="form-control" placeholder="Email address" />
+        <input type="password" class="form-control" placeholder="Password" />
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me" />
+            Remember me
+        </label>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" />
+    </div>
+}

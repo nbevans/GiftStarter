@@ -16,6 +16,12 @@ namespace Giftstarter.Controllers
             return View();
         }
 
+        [HttpPostAttribute]
+        public ActionResult Login(string username, string password)
+        {
+            return RedirectToAction("Wishlist");
+        }
+
         public ActionResult Wishlist()
         {
             return View();

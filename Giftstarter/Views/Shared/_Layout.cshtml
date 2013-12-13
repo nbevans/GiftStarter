@@ -1,6 +1,6 @@
 ﻿@using Giftstarter.Bootstrap
 @using Giftstarter.Bootstrap.Html
-@{ var isAuthenticated = false; }
+@{ var isAuthenticated = !Request.Path.Equals("/"); }
 <!DOCTYPE html>
 <html lang="en">
 <head>
