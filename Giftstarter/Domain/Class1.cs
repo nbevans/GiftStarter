@@ -67,6 +67,7 @@ namespace Giftstarter.Domain
             var nathan = new User("Nathan");
             var emma = new User("Emma");
             var simon = new User("Simon");
+            var sven = new User("Sven");
             Wishlists = new Dictionary<User, IList<WishedItem>>()
             {
                 {
@@ -91,7 +92,28 @@ namespace Giftstarter.Domain
                             Name = "Smiley Juggling Balls",
                             Link = "http://www.amazon.co.uk/Pack-Smiley-Juggling-Balls-Kick/dp/B00B8XJAOA/ref=sr_1_3?s=kitchen&ie=UTF8&qid=1386936910&sr=1-3&keywords=juggling+balls",
                             Price = 6m,
-                            Contributors = new Dictionary<User, decimal>()
+                            Contributors = new Dictionary<User, decimal>() {{simon, 1}}
+                        },
+                        new WishedItem()
+                        {
+                            Name = "Hula Hoops",
+                            Link = "http://www.amazon.co.uk/Hula-hoops-bundle-4x600mm-03276/dp/B000YETBUM/ref=sr_1_9?ie=UTF8&qid=1386955328&sr=8-9&keywords=hula+hoop",
+                            Price = 8.4m,
+                            Contributors = new Dictionary<User, decimal>() {{nathan, 2}}
+                        },
+                        new WishedItem()
+                        {
+                            Name = "Jenga",
+                            Link = "http://www.amazon.co.uk/Hasbro-71367-Jenga/dp/B00004XQW9/ref=sr_1_4?ie=UTF8&qid=1386955463&sr=8-4&keywords=jenga",
+                            Price = 17.99m,
+                            Contributors = new Dictionary<User, decimal>() {{sven, 5}, {james, 12}}
+                        },
+                        new WishedItem()
+                        {
+                            Name = "Nerf Gun",
+                            Link = "http://www.amazon.co.uk/Nerf-N-Strike-Elite-Strongarm-Blaster/dp/B009NFH7CC/ref=sr_1_1?ie=UTF8&qid=1386955576&sr=8-1&keywords=nerf+gun", 
+                            Price = 11.99m,
+                            Contributors = new Dictionary<User, decimal>() {{simon, 8}}
                         }
                     }
                 },
@@ -134,9 +156,13 @@ namespace Giftstarter.Domain
                             Contributors = new Dictionary<User, decimal>()
                         }
                     }
+                },
+                {
+                    sven,
+                    new List<WishedItem>()
                 }
             };
-            Users = new List<User> { james, nathan, emma, simon };
+            Users = new List<User> { james, nathan, emma, simon, sven };
         }
     }
 }
