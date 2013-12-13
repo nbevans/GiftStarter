@@ -17,6 +17,11 @@ namespace Giftstarter.Domain
             return Contributors.Values.Sum();
         }
 
+        public decimal Progress()
+        {
+            return Contribution()/Price*100;
+        }
+
         public WishedItem()
         {
             Contributors = new Dictionary<User, decimal>();
@@ -99,6 +104,13 @@ namespace Giftstarter.Domain
                             Link = "http://www.amazon.com/CTA-Digital-Pedestal-Stand-Holder/dp/B00AQT653G/ref=pd_rhf_se_p_d_3",
                             Price = 41.25m,
                             Contributors = new Dictionary<User, decimal>() {{emma, 5}, {simon, 3}}
+                        },
+                        new WishedItem()
+                        {
+                            Name = "COBOL For Dummies",
+                            Link = "http://www.amazon.co.uk/Cobol-For-Dummies-Arthur-Griffith/dp/0764502980/ref=sr_1_1?ie=UTF8&qid=1386948411&sr=8-1&keywords=cobol+for+dummies",
+                            Price = 69.74m,
+                            Contributors = new Dictionary<User, decimal>() {{emma, 10}, {james, 20}, {simon, 30}}
                         }
                     }
                 },
@@ -108,7 +120,7 @@ namespace Giftstarter.Domain
                     {
                         new WishedItem()
                         {
-                            Name = "Emy fancy dress costume",
+                            Name = "Emu fancy dress costume",
                             Link = "http://www.amazon.co.uk/fancy-dress-Ostrich-costume-novelty/dp/B00DOZQV8S/ref=sr_1_1?ie=UTF8&qid=1386935564&sr=8-1&keywords=emu+costume",
                             Price = 61.9m,
                             Contributors = new Dictionary<User, decimal>()
