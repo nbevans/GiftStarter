@@ -17,4 +17,10 @@ namespace Giftstarter.Models
     {
         public User User { get; set; }
     }
+
+    public class Pledge
+    {
+        public string Name { get; set; }
+        public string Amount { get; set; }
+    }
 }

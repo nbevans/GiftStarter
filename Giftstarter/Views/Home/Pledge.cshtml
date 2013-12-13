@@ -15,7 +15,7 @@
         <div class="text-success" style="font-size: 150%; font-weight: bold;">5 gifts so far!</div>
     </div>
     
-    @using (Html.BeginForm("formy"))
+    @using (Html.BeginForm("Pledge", "Home", FormMethod.Post, new {}))
     {
         <div class="col-md-9" style="width: 70%; font-size: 120%;">
             <div class="row" style="margin: 4px;">
@@ -30,7 +30,7 @@
                     <a class="col-md-4" href=@gift.Link style="font-weight: bold;">@gift.Name</a>
                     <div class="col-md-2">@gift.Price.ToString("C")</div>
                     <div class="col-md-4">
-                        <div class="progress" style="width: 60px;">
+                        <div class="progress" style="width: 100%;">
                             <div class="progress-bar" role="progressbar" style="width: @gift.Progress().ToString()%;" />
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             }
-            <input type="button" class="btn btn-lg btn-primary btn-block" value="Pledge!"
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Pledge!"
                    style="font-weight: bold; width: 120px; float: right; font-size: 140%; margin-top: 10px; margin-right: 5px;" />
         </div>
     }

@@ -55,5 +55,18 @@ namespace Giftstarter.Controllers
             ViewBag.name = name;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Pledge()
+        {
+            var x = State.Instance.Wishlists[new User("Emma")][0];
+
+            if (x.Contributors.ContainsKey(new User("James")))
+                x.Contributors[new User("James")] += 5;
+            else
+                x.Contributors.Add(new User("James"), 5);
+            
+            return RedirectToAction("Friends");
+        }
     }
 }

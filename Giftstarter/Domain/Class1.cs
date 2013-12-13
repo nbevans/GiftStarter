@@ -19,7 +19,8 @@ namespace Giftstarter.Domain
 
         public decimal Progress()
         {
-            return Contribution()/Price*100;
+            var x = Contribution()/Price*100;
+            return Math.Min(100, x);
         }
 
         public WishedItem()
