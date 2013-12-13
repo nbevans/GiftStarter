@@ -30,8 +30,10 @@
                     <a class="col-md-4" href=@gift.Link style="font-weight: bold;">@gift.Name</a>
                     <div class="col-md-2">@gift.Price.ToString("C")</div>
                     <div class="col-md-4">
-                        <div class="progress" style="width: 60px;">
-                            <div class="progress-bar" role="progressbar" style="width: @gift.Progress().ToString()%;" />
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: @gift.Progress().ToString()%;">
+                                <span class="sr-only">40% Complete (success)</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
