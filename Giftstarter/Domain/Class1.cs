@@ -23,12 +23,27 @@ namespace Giftstarter.Domain
         }
     }
 
-    public class User
+    public class User : IComparable<User>, IEquatable<User>
     {
         public string Name { get; set; }
         public User(string name)
         {
             Name = name;
+        }
+
+        public int CompareTo(User other)
+        {
+            return StringComparer.OrdinalIgnoreCase.Compare(Name, other.Name);
+        }
+
+        public bool Equals(User other)
+        {
+            return StringComparer.OrdinalIgnoreCase.Equals(Name, other.Name);
+        }
+
+        public override int GetHashCode()
+        {
+            return StringComparer.OrdinalIgnoreCase.GetHashCode(Name);
         }
     }
 
@@ -36,8 +51,9 @@ namespace Giftstarter.Domain
     {
         public IDictionary<User, IList<WishedItem>> Wishlists { get; set; }
         public IList<User> Users { get; private set; }
+        public static readonly State Instance = new State();
 
-        public State()
+        private State()
         {
             var james = new User("James");
             var nathan = new User("Nathan");
