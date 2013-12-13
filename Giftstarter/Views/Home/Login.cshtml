@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<form role="form">
+    <h2>Please sign in</h2>
+    <input type="text" class="form-control" placeholder="Email address" />
+    <input type="password" class="form-control" placeholder="Password" />
+    <label class="checkbox">
+        <input type="checkbox" value="remember-me" />
+        Remember me
+    </label>
+    @Html.ActionLink("Sign in", "Wishlist")
+</form>
