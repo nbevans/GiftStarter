@@ -1,0 +1,75 @@
+﻿@using Giftstarter.Bootstrap
+@using Giftstarter.Bootstrap.Html
+@{ var isAuthenticated = true; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>GiftStarter</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="padding-top: 70px">
+    @if (isAuthenticated) {
+        <header>
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">GiftStarter</div>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            @Html.MenuLink("Wish list", "Wishlist", "Home")
+                            @Html.MenuLink("Friends", "Friends", "Home")
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img id="avatar" class="avatar-20px" src="@Url.Action("Get", "Avatar", new { userName = User.Identity.Name, size = 100 })" />
+                                    @User.Identity.Name
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Edit my profile…", "EditProfile", "Session")</li>
+                                    <li>@Html.ActionLink("Change my password…", "ChangePassword", "Session")</li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Sign out", "Logout", "Session")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    }
+
+    <div class="container">
+        <noscript>
+            <div id="js-required" class="alert alert-danger">
+                <h4>Warning! Your web browsing experience is <em>broken</em>!</h4>
+                <div style="padding-top: 1em">
+                    <p>We've detected that your web browser has disabled <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> for this web application.</p>
+                    <p>To continue using this web application you must <a href="http://support.google.com/bin/answer.py?answer=23852">enable JavaScript on your web browser.</a></p>
+                </div>
+            </div>
+        </noscript>
+
+        <section>
+            @RenderBody()
+        </section>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
